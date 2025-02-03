@@ -29,13 +29,27 @@ public class SearchTheWord {
     public boolean search(Trie root, String word){
         Trie temp = root;
         for(int i = 0; i < word.length(); i++){
+
             char ch = word.charAt(i);
-            if(!temp.child.containsKey(ch) || temp.child.isEmpty()){
+
+            if(ch == '.'){
+                for(Trie node : temp.child.values()){
+                    // newNode = node;
+                    if(search(node,word.substring(i+1))){
+                        return true;
+                    }
+                }
                 return false;
             }
             else{
-                temp = temp.child.get(ch);
+                if(!temp.child.containsKey(ch) || temp.child.isEmpty()){
+                    return false;
+                }
+                else{
+                    temp = temp.child.get(ch);
+                }
             }
+
         }
         return temp.isWordEnd;
     }

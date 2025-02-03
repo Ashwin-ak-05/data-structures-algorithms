@@ -5,6 +5,6 @@ public class Client {
         SearchTheWord searchTheWord = new SearchTheWord();
         String[] words = {"cater","draw","man","cat"};
         Trie root = searchTheWord.insertWords(words);
-        System.out.println(searchTheWord.search(root,"man"));
+        System.out.println(searchTheWord.search(root,"ma."));
     }
 }
