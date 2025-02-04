@@ -58,32 +58,43 @@ public class Client {
 //        int[][] edges = {{0,1},{0,2},{1,2},{3,4},{3,5}};
 //        System.out.println(completeComponent.countCompleteComponents(6,edges));
 
-        IsCyle isCyle = new IsCyle();
+        TopoligicalSort topoligicalSort = new TopoligicalSort();
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
         ArrayList<Integer> arr1 = new ArrayList<>();
-        arr1.add(1);
-        arr1.add(2);
+
 
         ArrayList<Integer> arr2 = new ArrayList<>();
-        arr2.add(2);
         arr2.add(3);
+
 
         ArrayList<Integer> arr3 = new ArrayList<>();
         arr3.add(3);
-        arr3.add(4);
+
 
         ArrayList<Integer> arr4 = new ArrayList<>();
-        arr4.add(4);
-        arr4.add(5);
+        //arr4.add(0);
+        ArrayList<Integer> arr5 = new ArrayList<>();
+        arr5.add(0);
+        arr5.add(1);
+
+        ArrayList<Integer> arr6 = new ArrayList<>();
+        arr6.add(0);
+        arr6.add(2);
+
 
         adj.add(arr1);
         adj.add(arr2);
         adj.add(arr3);
         adj.add(arr4);
+        adj.add(arr5);
+        adj.add(arr6);
         //adj.add(a)
 
-        isCyle.isCycle(adj,5);
+        ArrayList<Integer> arrayList = topoligicalSort.returnOrder(adj);
+        for (Integer i : arrayList) {
+            System.out.print(i + " ");
+        }
 
 
     }
