@@ -58,44 +58,67 @@ public class Client {
 //        int[][] edges = {{0,1},{0,2},{1,2},{3,4},{3,5}};
 //        System.out.println(completeComponent.countCompleteComponents(6,edges));
 
-        TopoligicalSort topoligicalSort = new TopoligicalSort();
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+//        TopoligicalSort topoligicalSort = new TopoligicalSort();
+//        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+//
+//        ArrayList<Integer> arr1 = new ArrayList<>();
+//
+//
+//        ArrayList<Integer> arr2 = new ArrayList<>();
+//        arr2.add(3);
+//
+//
+//        ArrayList<Integer> arr3 = new ArrayList<>();
+//        arr3.add(3);
+//
+//
+//        ArrayList<Integer> arr4 = new ArrayList<>();
+//        //arr4.add(0);
+//        ArrayList<Integer> arr5 = new ArrayList<>();
+//        arr5.add(0);
+//        arr5.add(1);
+//
+//        ArrayList<Integer> arr6 = new ArrayList<>();
+//        arr6.add(0);
+//        arr6.add(2);
+//
+//
+//        adj.add(arr1);
+//        adj.add(arr2);
+//        adj.add(arr3);
+//        adj.add(arr4);
+//        adj.add(arr5);
+//        adj.add(arr6);
+//        //adj.add(a)
+//
+//        ArrayList<Integer> arrayList = topoligicalSort.returnOrder(adj);
+//        for (Integer i : arrayList) {
+//            System.out.print(i + " ");
+//        }
 
-        ArrayList<Integer> arr1 = new ArrayList<>();
+//        DijkstraAlgorithm dijkstraAlgorithm = new DijkstraAlgorithm();
+//        iPair pair0 = new iPair(1,9);
+//        iPair pair1 = new iPair(0,9);
+//
+//        ArrayList<ArrayList<iPair>> graph = new ArrayList<>();
+//        ArrayList<iPair> p0 = new ArrayList<>();
+//        p0.add(pair0);
+//
+//        ArrayList<iPair> p1 = new ArrayList<>();
+//        p1.add(pair1);
+//
+//        graph.add(p0);
+//        graph.add(p1);
+//
+//        ArrayList<Integer> result = dijkstraAlgorithm.dijkstra(graph,0);
+//        for (Integer i : result) {
+//            System.out.println(i);
+//        }
 
+        CourseSchedule cs = new CourseSchedule();
 
-        ArrayList<Integer> arr2 = new ArrayList<>();
-        arr2.add(3);
-
-
-        ArrayList<Integer> arr3 = new ArrayList<>();
-        arr3.add(3);
-
-
-        ArrayList<Integer> arr4 = new ArrayList<>();
-        //arr4.add(0);
-        ArrayList<Integer> arr5 = new ArrayList<>();
-        arr5.add(0);
-        arr5.add(1);
-
-        ArrayList<Integer> arr6 = new ArrayList<>();
-        arr6.add(0);
-        arr6.add(2);
-
-
-        adj.add(arr1);
-        adj.add(arr2);
-        adj.add(arr3);
-        adj.add(arr4);
-        adj.add(arr5);
-        adj.add(arr6);
-        //adj.add(a)
-
-        ArrayList<Integer> arrayList = topoligicalSort.returnOrder(adj);
-        for (Integer i : arrayList) {
-            System.out.print(i + " ");
-        }
-
-
+        int numCourses1 = 2;
+        int[][] prerequisites1 = {{1, 0}};
+        System.out.println(cs.canFinish(numCourses1, prerequisites1));
     }
 }
