@@ -38,8 +38,8 @@ public class CourseScheduleTwo {
             count++;
             List<Integer> list = graph.get(temp);
             for (int i = 0; i < list.size(); i++) {
-                inDegree[list.get(i)] = inDegree[list.get(i)] -1;
-                if(inDegree[list.get(i)] == 0){
+                inDegree[list.get(i)] = inDegree[list.get(i)] - 1;
+                if (inDegree[list.get(i)] == 0) {
                     queue.add(list.get(i));
                 }
             }
@@ -47,11 +47,11 @@ public class CourseScheduleTwo {
         }
 
         int[] finished_courses = new int[course_list.size()];
-        for(int i = 0; i<course_list.size(); i++){
+        for (int i = 0; i < course_list.size(); i++) {
             finished_courses[i] = course_list.get(i);
         }
 
-        if(count == numCourses){
+        if (count == numCourses) {
             return finished_courses;
         }
 
