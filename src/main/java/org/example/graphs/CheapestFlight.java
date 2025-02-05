@@ -39,15 +39,15 @@ public class CheapestFlight {
 
         while (!pq.isEmpty()){
             Flight temp = pq.poll();
-            if(cost_list[temp.to] == Integer.MAX_VALUE || temp.count <= k+1 ){
+            if(cost_list[temp.to] == Integer.MAX_VALUE && temp.count <= k+1 ){
                 cost_list[temp.to] = temp.cost;
-                ArrayList<Flight> list = flightList.get(temp.from);
+                ArrayList<Flight> list = flightList.get(temp.to);
 
                 for(int i = 0; i< list.size(); i++){
                     Flight flight = list.get(i);
-                    if(flight.to == Integer.MAX_VALUE){
+                    if(cost_list[flight.to] == Integer.MAX_VALUE){
                         flight.cost = flight.cost + temp.cost;
-                        flight.count = flight.count + 1;
+                        flight.count =  temp.count + 1;
                         pq.add(flight);
                     }
 
@@ -55,9 +55,9 @@ public class CheapestFlight {
             }
         }
 
-        //if(cost_list[dst] != Integer.MAX_VALUE){
+        if(cost_list[dst] != Integer.MAX_VALUE){
             return cost_list[dst];
-//        }
-//        return -1;
+        }
+        return -1;
     }
 }
