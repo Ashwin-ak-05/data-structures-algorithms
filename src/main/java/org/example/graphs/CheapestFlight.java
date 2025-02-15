@@ -17,8 +17,11 @@ public class CheapestFlight {
         }
     }
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
-        int[] cost_list = new int[n];
-        Arrays.fill(cost_list,Integer.MAX_VALUE);
+        int[][] cost_list = new int[n][2];
+        for(int[] arr : cost_list){
+            arr[0] = Integer.MAX_VALUE;
+        }
+        //Arrays.fill(cost_list,Integer.MAX_VALUE);
         ArrayList<ArrayList<Flight>> flightList = new ArrayList<>();
         PriorityQueue<Flight> pq = new PriorityQueue<>(Comparator.comparing(flight -> flight.cost));
 
@@ -39,25 +42,30 @@ public class CheapestFlight {
 
         while (!pq.isEmpty()){
             Flight temp = pq.poll();
-            if(cost_list[temp.to] == Integer.MAX_VALUE || temp.count <= k+1 ){
-                cost_list[temp.to] = temp.cost;
-                ArrayList<Flight> list = flightList.get(temp.from);
+            if((cost_list[temp.to][0] == Integer.MAX_VALUE || temp.count < cost_list[temp.to][1]) && temp.count <= k+1 ){
+                cost_list[temp.to][0] = temp.cost;
+                cost_list[temp.to][1] = temp.count;
+                ArrayList<Flight> list = flightList.get(temp.to);
 
                 for(int i = 0; i< list.size(); i++){
                     Flight flight = list.get(i);
-                    if(flight.to == Integer.MAX_VALUE){
-                        flight.cost = flight.cost + temp.cost;
-                        flight.count = flight.count + 1;
-                        pq.add(flight);
+                    if(cost_list[flight.to][0] == Integer.MAX_VALUE){
+                        int flight_cost = flight.cost + temp.cost;
+                        int flight_count = temp.count +1;
+                        Flight new_flight = new Flight(flight.from,flight.to,flight_cost);
+                        new_flight.count = flight_count;
+//                        flight.cost = flight.cost + temp.cost;
+//                        flight.count =  temp.count + 1;
+                        pq.add(new_flight);
                     }
 
                 }
             }
         }
 
-        //if(cost_list[dst] != Integer.MAX_VALUE){
-            return cost_list[dst];
-//        }
-//        return -1;
+        if(cost_list[dst][0] != Integer.MAX_VALUE){
+            return cost_list[dst][0];
+        }
+        return -1;
     }
 }

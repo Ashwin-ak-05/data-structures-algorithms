@@ -115,10 +115,15 @@ public class Client {
 //            System.out.println(i);
 //        }
 
-        CourseSchedule cs = new CourseSchedule();
-
-        int numCourses1 = 2;
-        int[][] prerequisites1 = {{1, 0}};
-        System.out.println(cs.canFinish(numCourses1, prerequisites1));
+//        CourseSchedule cs = new CourseSchedule();
+//
+//        int numCourses1 = 2;
+//        int[][] prerequisites1 = {{1, 0}};
+//        System.out.println(cs.canFinish(numCourses1, prerequisites1));
+        CheapestFlight cheapestFlight = new CheapestFlight();
+        int n = 4;
+        int[][] flights = {{0,1,1}, {0,2,5}, {1,2,1}, {2,3,1}};
+        int src = 0, dst = 3, k = 1;
+        System.out.println(cheapestFlight.findCheapestPrice(n, flights, src, dst, k));
     }
 }

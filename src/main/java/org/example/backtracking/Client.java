@@ -9,15 +9,15 @@ public class Client {
 //        //printOneAndTwo.print(0,0,3);
 //        printOneAndTwo.printArr(new int[3],0);
 
-        PrintAllSubsets printAllSubsets = new PrintAllSubsets();
-        int arr[] = {1,2};
-        List<List<Integer>> result = printAllSubsets.subsets(arr);
-        for (List<Integer> list : result) {
-            for(int i : list){
-                System.out.print(i);
-            }
-            System.out.print(" ");
-
-        }
+//        PrintAllSubsets printAllSubsets = new PrintAllSubsets();
+//        int arr[] = {1,2};
+//        List<List<Integer>> result = printAllSubsets.subsets(arr);
+//        for (List<Integer> list : result) {
+//            for(int i : list){
+//                System.out.print(i);
+//            }
+//            System.out.print(" ");
+//
+//        }
     }
 }
