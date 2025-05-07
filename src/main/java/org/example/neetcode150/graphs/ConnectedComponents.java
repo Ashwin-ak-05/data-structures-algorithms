@@ -7,8 +7,8 @@ import java.util.Map;
 public class ConnectedComponents {
     public ArrayList<ArrayList<Integer>> connectedcomponents(int n, int[][] edges) {
         //int n = edges.size();
-        int[] parent = new int[n+1];
-        int[] rank = new int[n+1];
+        int[] parent = new int[n + 1];
+        int[] rank = new int[n + 1];
 
         for (int i = 0; i <= n; i++) {
             parent[i] = i;
@@ -16,18 +16,16 @@ public class ConnectedComponents {
         }
 
 
-
-
-        for(int[] edge : edges){
-            union(parent,rank,edge[0],edge[1]);
+        for (int[] edge : edges) {
+            union(parent, rank, edge[0], edge[1]);
 
         }
 
 
         Map<Integer, ArrayList<Integer>> hm = new HashMap<>();
 
-        for(int i = 0; i<n; i++){
-            int root = find(parent,i);
+        for (int i = 0; i < n; i++) {
+            int root = find(parent, i);
             hm.computeIfAbsent(root, k -> new ArrayList<>()).add(i);
 
         }
@@ -46,7 +44,6 @@ public class ConnectedComponents {
     public void union(int[] parent, int[] rank, int u, int v) {
         int uParent = find(parent, u);
         int vParent = find(parent, v);
-
 
 
         if (rank[uParent] > rank[vParent]) {

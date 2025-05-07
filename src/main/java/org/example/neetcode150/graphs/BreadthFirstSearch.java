@@ -3,7 +3,7 @@ package org.example.neetcode150.graphs;
 import java.util.*;
 
 public class BreadthFirstSearch {
-    public void bfs(int[][] edges){
+    public void bfs(int[][] edges) {
         Queue<Integer> queue = new LinkedList<>();
         List<List<Integer>> list = new ArrayList<>();
         boolean[] visited = new boolean[edges.length];
@@ -20,12 +20,12 @@ public class BreadthFirstSearch {
 
         queue.add(0);
         visited[0] = true;
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int v = queue.poll();
             System.out.print(v + " -> ");
 
-            for(int n : list.get(v)){
-                if(!visited[n]){
+            for (int n : list.get(v)) {
+                if (!visited[n]) {
                     queue.add(n);
                     visited[n] = true;
                 }
