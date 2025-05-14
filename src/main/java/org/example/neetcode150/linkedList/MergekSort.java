@@ -1,15 +1,22 @@
 package org.example.neetcode150.linkedList;
 
 public class MergekSort {
-    public void mergeKLists(ListNode[] lists) {
-        ListNode listNode = new ListNode(Integer.MIN_VALUE);
-        ListNode curr = listNode;
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0)
+            return null;
+        int l = 0;
+        int r = lists.length - 1;
+        return sort(lists, l, r);
+    }
 
-        for(int i = 0; i<lists.length; i++){
-            curr = mergeTwoLists(curr,lists[i]);
+    public ListNode sort(ListNode[] lists, int l, int r) {
+        if (l == r) {
+            return lists[l];
         }
-
-        PrintNode.printList(curr);
+        int mid = (l + r) / 2;
+        ListNode l1 = sort(lists, l, mid);
+        ListNode l2 = sort(lists, mid + 1, r);
+        return mergeTwoLists(l1, l2);
     }
 
     public ListNode mergeTwoLists(ListNode h1, ListNode h2) {
